@@ -647,11 +647,7 @@
                     return lowerName.endsWith('.png') || lowerName.endsWith('.jpg') || lowerName.endsWith('.jpeg') || lowerName.endsWith('.ping');
                 });
 
-                const imageFiles = files.filter(file => {
-  if (file.type !== 'file') return false;
-  const lowerName = file.name.toLowerCase();
-  return lowerName.endsWith('.png') || lowerName.endsWith('.jpg') || lowerName.endsWith('.jpeg');
-});
+    
 
 imageFiles.sort((a, b) => {
   return a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' });
