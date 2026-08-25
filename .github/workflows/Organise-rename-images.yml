@@ -13,7 +13,8 @@ jobs:
       - name: Create folder and rename/move images
         run: |
   
-          
+          rm -f images/image-18.png images/image-19.png images/image-20.png
+
       count=1
 for img in images/*.png images/*.jpg images/*.jpeg; do
   if [ -f "$img" ]; then
