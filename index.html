@@ -251,7 +251,7 @@
             box-shadow: 0 8px 24px rgba(0,0,0,0.6);
         }
 
-        /* Slideshow Styles */
+        /* Slideshow Styles with Crossfade */
         .slideshow-container {
             position: relative;
             max-width: 100%;
@@ -266,12 +266,20 @@
         }
 
         .slide {
-            display: none;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            pointer-events: none;
+            display: block !important;
         }
 
         .slide.active-slide {
-            display: block;
-            animation: fadeIn 0.4s ease-in-out;
+            position: relative;
+            opacity: 1;
+            pointer-events: auto;
         }
 
         .slideshow-container img {
@@ -302,6 +310,7 @@
             border-radius: 50%;
             transition: all 0.25s ease;
             user-select: none;
+            z-index: 10;
         }
 
         .slideshow-btn:hover {
@@ -494,6 +503,7 @@
                        John Harris (Guitar)<br>
                        Nigel Prenter (Guitar/Vocals)<br>
                        Simon Whittaker (Drums/Backing Vocals)<br>
+            </p>
         </section>
 
         <!-- ==================== ALBUMS SECTION ==================== -->
@@ -631,7 +641,6 @@
                 if (!response.ok) throw new Error('Failed to fetch repository contents');
                 
                 const files = await response.json();
-                // Filter for image formats (.png, .jpg, .jpeg, .ping)
                 const imageFiles = files.filter(file => {
                     if (file.type !== 'file') return false;
                     const lowerName = file.name.toLowerCase();
@@ -665,9 +674,6 @@
                 container.innerHTML = '<p style="padding: 20px; color: #ff6b6b;">Could not load image slideshow automatically.</p>';
             }
         }
-
-  
-
         
         function changeSlide(n) {
             const slides = document.querySelectorAll('.slide');
