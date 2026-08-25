@@ -12,16 +12,17 @@ jobs:
 
       - name: Create folder and rename/move images
         run: |
-          mkdir -p images
+  
           
-          count=1
-          for img in *.png *.jpg *.jpeg; do
-            if [ -f "$img" ]; then
-              extension="${img##*.}"
-              mv "$img" "images/image-$count.$extension"
-              count=$((count + 1))
-            fi
-          done
+      count=1
+for img in images/*.png images/*.jpg images/*.jpeg; do
+  if [ -f "$img" ]; then
+    extension="${img##*.}"
+    mv "$img" "images/image-$count.$extension"
+    count=$((count + 1))
+  fi
+done
+
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
