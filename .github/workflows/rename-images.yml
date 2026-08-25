@@ -1,0 +1,32 @@
+name: Rename Images Sequentially
+
+on:
+  workflow_dispatch: # Allows you to trigger this manually from the Actions tab
+
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run rename script
+        run: |
+          # Navigate to your image directory (adjust path if needed)
+          cd path/to/your/images
+          
+          count=1
+          # Loop through common image formats and rename them sequentially
+          for img in *.png *.jpg *.jpeg; do
+            if [ -f "$img" ]; then
+              extension="${img##*.}"
+              mv "$img" "image-$count.$extension"
+              count=$((count + 1))
+            fi
+          done
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-rename images sequentially"
+          branch: main
