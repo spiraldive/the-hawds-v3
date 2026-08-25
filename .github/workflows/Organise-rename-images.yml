@@ -15,14 +15,15 @@ jobs:
   
           rm -f images/image-18.png images/image-19.png images/image-20.png
 
-      count=1
-for img in images/*.png images/*.jpg images/*.jpeg; do
-  if [ -f "$img" ]; then
-    extension="${img##*.}"
-    mv "$img" "images/image-$count.$extension"
-    count=$((count + 1))
-  fi
-done
+            count=1
+        for img in images/*.png images/*.jpg images/*.jpeg; do
+          if [ -f "$img" ]; then
+            extension="${img##*.}"
+            mv "$img" "images/image-$count.$extension"
+            count=$((count + 1))
+          fi
+        done
+
 
 
       - name: Commit and push changes
