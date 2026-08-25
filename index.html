@@ -637,7 +637,7 @@
         async function loadRepoImages() {
             const container = document.getElementById('dynamic-slideshow');
             try {
-                const response = await fetch('https://api.github.com/repos/spiraldive/the-hawds-v3/contents/');
+                const response = await fetch('https://api.github.com/repos/spiraldive/the-hawds-v3/contents/images');
                 if (!response.ok) throw new Error('Failed to fetch repository contents');
                 
                 const files = await response.json();
