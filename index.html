@@ -12,10 +12,10 @@
     <style>
         :root {
             --accent-gold: #f0c95c;
-            --accent-gold-glow: rgba(240, 201, 92, 0.4);
-            --glass-bg: rgba(14, 11, 20, 0.82);
-            --glass-border: rgba(240, 201, 92, 0.4);
-            --glass-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.85);
+            --accent-goldi-glow: rgba(240, 201, 92, 0.4);
+            --glass-bg: rgba(25, 38, 70, 0.82);
+            --glass-border: rgba(180, 200, 240, 0.3);
+            --glass-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.5);
             --text-light: #f4f4f6;
         }
 
@@ -38,65 +38,18 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            background-color: #010102;
+            background-color: #3b5998; /* China Blue Background */
         }
 
-        /* Deep Club Backdrop Vignette & Glow */
-        #club-backdrop {
+        /* Slowly Rotating Involute Wallpaper Canvas */
+        #involute-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
             z-index: 0;
-            background: 
-                radial-gradient(circle at 50% 25%, rgba(65, 48, 18, 0.65) 0%, rgba(22, 16, 32, 0.88) 55%, rgba(2, 1, 4, 0.98) 100%),
-                radial-gradient(circle at 10% 85%, rgba(45, 30, 12, 0.45) 0%, transparent 60%),
-                radial-gradient(circle at 90% 85%, rgba(45, 30, 12, 0.45) 0%, transparent 60%);
             pointer-events: none;
-        }
-
-        /* Sparkle Field Layer */
-        #sparkles-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 1;
-            background-image: 
-                radial-gradient(rgba(255, 255, 255, 0.7) 1.2px, transparent 1.2px),
-                radial-gradient(rgba(240, 201, 92, 0.6) 1.5px, transparent 1.5px);
-            background-size: 55px 55px, 95px 95px;
-            background-position: 0 0, 45px 45px;
-            opacity: 0.28;
-            pointer-events: none;
-        }
-
-        /* High-Visibility, Dense Swirling Gold Club Smoke Layer */
-        #smoke-layer {
-            position: fixed;
-            top: -25%;
-            left: -50%;
-            width: 200vw;
-            height: 150vh;
-            z-index: 2;
-            background: 
-                radial-gradient(ellipse at 30% 40%, rgba(240, 201, 92, 0.45) 0%, transparent 58%),
-                radial-gradient(ellipse at 70% 55%, rgba(255, 215, 100, 0.38) 0%, transparent 62%),
-                radial-gradient(ellipse at 50% 75%, rgba(210, 165, 45, 0.42) 0%, transparent 52%),
-                radial-gradient(ellipse at 20% 80%, rgba(255, 230, 130, 0.32) 0%, transparent 48%);
-            opacity: 1;
-            filter: blur(42px);
-            animation: smokeDrift 14s ease-in-out infinite alternate;
-            will-change: transform;
-            pointer-events: none;
-        }
-
-        @keyframes smokeDrift {
-            0% { transform: translate(-8%, -4%) scale(1); }
-            50% { transform: translate(8%, 6%) scale(1.15); }
-            100% { transform: translate(-6%, 5%) scale(1.06); }
         }
 
         #bg-audio { display: none; }
@@ -123,27 +76,27 @@
             height: auto;
             display: block;
             margin: 0 auto;
-            filter: drop-shadow(0 8px 20px rgba(0,0,0,0.95));
+            filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5));
         }
 
         .header-tagline {
             font-size: 0.9em;
             font-weight: 500;
             letter-spacing: 1.5px;
-            color: var(--accent-gold);
+            color: #dcd0ff;
             text-transform: uppercase;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         /* Glossy Squarespace-Style Sticky Navigation Bar */
         nav {
             position: sticky;
             top: 10px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(14, 11, 20, 0.92) 40%, rgba(8, 6, 12, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(35, 55, 95, 0.92) 40%, rgba(20, 35, 65, 0.95) 100%);
             backdrop-filter: blur(18px) saturate(180%);
             -webkit-backdrop-filter: blur(18px) saturate(180%);
             border: 1px solid var(--glass-border);
-            box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.3);
             border-radius: 14px;
             padding: 10px 20px;
             width: 100%;
@@ -177,8 +130,8 @@
 
         nav button.nav-btn:hover, nav button.nav-btn.active {
             color: #010102;
-            background: var(--accent-gold);
-            box-shadow: 0 0 15px var(--accent-gold-glow);
+            background: #dcd0ff;
+            box-shadow: 0 0 15px rgba(220, 208, 255, 0.6);
         }
 
         main {
@@ -204,7 +157,7 @@
 
         /* Glossy High-End Squarespace Card Finish */
         .card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(18, 14, 26, 0.85) 45%, rgba(10, 8, 16, 0.9) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(30, 48, 85, 0.85) 45%, rgba(20, 32, 60, 0.9) 100%);
             backdrop-filter: blur(16px) saturate(180%);
             -webkit-backdrop-filter: blur(16px) saturate(180%);
             border: 1px solid var(--glass-border);
@@ -212,29 +165,29 @@
             padding: 26px;
             margin: 18px auto;
             width: 100%;
-            box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+            box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.25);
             text-align: left;
             word-wrap: break-word;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
-            border-color: rgba(240, 201, 92, 0.6);
-            box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+            border-color: rgba(220, 208, 255, 0.6);
+            box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.35);
         }
 
         h2 {
             font-size: 1.35em;
             margin-bottom: 15px;
-            border-bottom: 1px solid rgba(240, 201, 92, 0.35);
+            border-bottom: 1px solid rgba(220, 208, 255, 0.35);
             display: inline-block;
             padding-bottom: 4px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--accent-gold);
+            color: #dcd0ff;
         }
 
-        p { color: #d0d0d6; font-size: 0.95em; line-height: 1.5; }
+        p { color: #e4e4ed; font-size: 0.95em; line-height: 1.5; }
 
         .video-grid {
             display: grid;
@@ -257,11 +210,11 @@
             position: relative;
             max-width: 100%;
             margin: auto;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.4);
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.15);
             overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
             padding: 10px;
             text-align: center;
         }
@@ -293,7 +246,7 @@
 
         .slide-caption {
             font-size: 0.85em;
-            color: var(--accent-gold);
+            color: #dcd0ff;
             margin-top: 8px;
         }
 
@@ -301,8 +254,8 @@
             position: absolute;
             top: 45%;
             transform: translateY(-50%);
-            background: rgba(14, 11, 20, 0.7);
-            color: var(--accent-gold);
+            background: rgba(20, 32, 60, 0.8);
+            color: #dcd0ff;
             border: 1px solid var(--glass-border);
             padding: 10px 14px;
             cursor: pointer;
@@ -315,7 +268,7 @@
         }
 
         .slideshow-btn:hover {
-            background: var(--accent-gold);
+            background: #dcd0ff;
             color: #010102;
         }
 
@@ -359,14 +312,14 @@
         .form-group label {
             font-size: 0.85em;
             font-weight: 500;
-            color: var(--accent-gold);
+            color: #dcd0ff;
         }
 
         .form-group input, 
         .form-group textarea {
             width: 100%;
             padding: 12px;
-            background: rgba(8, 6, 12, 0.8);
+            background: rgba(15, 25, 45, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 10px;
             color: #fff;
@@ -378,8 +331,8 @@
 
         .form-group input:focus,
         .form-group textarea:focus {
-            border-color: var(--accent-gold);
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5), 0 0 10px var(--accent-gold-glow);
+            border-color: #dcd0ff;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(220, 208, 255, 0.5);
         }
 
         .form-group.field-error input,
@@ -401,10 +354,10 @@
         }
 
         button[type="submit"] {
-            background: linear-gradient(135deg, rgba(240, 201, 92, 0.3) 0%, rgba(210, 165, 45, 0.15) 100%);
-            color: var(--accent-gold);
+            background: linear-gradient(135deg, rgba(220, 208, 255, 0.3) 0%, rgba(180, 160, 230, 0.15) 100%);
+            color: #dcd0ff;
             padding: 12px;
-            border: 1px solid rgba(240, 201, 92, 0.5);
+            border: 1px solid rgba(220, 208, 255, 0.5);
             border-radius: 10px;
             font-size: 1em;
             font-weight: 600;
@@ -415,9 +368,9 @@
         }
 
         button[type="submit"]:hover {
-            background: var(--accent-gold);
+            background: #dcd0ff;
             color: #010102;
-            box-shadow: 0 6px 20px var(--accent-gold-glow);
+            box-shadow: 0 6px 20px rgba(220, 208, 255, 0.6);
         }
 
         #status-message {
@@ -434,17 +387,17 @@
             margin-top: 20px;
             padding: 15px;
             font-size: 0.8em;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(14, 11, 20, 0.88) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(30, 48, 85, 0.88) 100%);
             border: 1px solid var(--glass-border);
             border-radius: 12px;
-            color: #aaa;
+            color: #ccc;
             box-shadow: var(--glass-shadow);
         }
 
-        footer a { color: var(--accent-gold); text-decoration: underline; }
+        footer a { color: #dcd0ff; text-decoration: underline; }
         
         .album-card {
-            background: rgba(0, 0, 0, 0.45); 
+            background: rgba(0, 0, 0, 0.3); 
             padding: 16px; 
             border-radius: 10px; 
             border: 1px solid rgba(255, 255, 255, 0.1); 
@@ -455,10 +408,8 @@
 </head>
 <body>
 
-    <!-- ATMOSPHERIC BACKGROUND LAYERS -->
-    <div id="club-backdrop"></div>
-    <div id="sparkles-bg"></div>
-    <div id="smoke-layer"></div>
+    <!-- ANIMATED CANVAS WALLPAPER: Slowly Rotating Involute (Lilac on China Blue) -->
+    <canvas id="involute-bg"></canvas>
 
     <!-- BACKGROUND AUDIO -->
     <audio id="bg-audio" autoplay loop preload="auto">
@@ -469,10 +420,6 @@
     <header>
         <img src="LOGO.JPG" alt="The Hawds Logo" class="header-logo">
         <div class="header-tagline">Flawlessly fused rock, funk, country and jazz.</div>
-        <!-- Embedded YouTube video below the logo/tagline -->
-        <div style="width: 100%; max-width: 480px; margin-top: 10px;">
-            <iframe width="100%" height="240" src="https://www.youtube.com/embed/5d5B25isaWw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 8px 24px rgba(0,0,0,0.6);"></iframe>
-        </div>
     </header>
 
 
@@ -497,7 +444,7 @@
                 Based out of DB Studios in Stroud, UK (and frequently at the Woolpack pub in Slad).
             </p>
             <p>
-                <strong style="color: var(--accent-gold);">Band Details:</strong><br>
+                <strong style="color: #dcd0ff;">Band Details:</strong><br>
                 • Style: Rock, funk, country, and jazz mix<br> <br>
                 • Members: <br>
                        Andrew Butler (Keyboards/Vocals)<br>
@@ -517,31 +464,31 @@
                 <a href="https://open.spotify.com/artist/2cWhwKoJZ6rTbWoGS7c0jA" target="_blank" class="spotify-link">Listen on Spotify Artist Profile &rarr;</a>
             </div>
             
-            <h3 style="font-size: 1.1em; margin: 15px 0 10px; color: var(--accent-gold); text-transform: uppercase;">Full Albums</h3>
+            <h3 style="font-size: 1.1em; margin: 15px 0 10px; color: #dcd0ff; text-transform: uppercase;">Full Albums</h3>
 
             <div class="album-card">
                 <h3 style="font-size: 1.05em; margin-bottom: 5px; color: #fff;">The Hawds Greatest Flops Volume 1 (2022)</h3>
-                <p style="font-size: 0.9em; color: #bbb; margin-bottom: 8px;">A massive 35-track debut studio album featuring songs like "My Ukulele She Got Wings," "Cider Pudding," and "The Dursley Rhumba".</p>
+                <p style="font-size: 0.9em; color: #ccc; margin-bottom: 8px;">A massive 35-track debut studio album featuring songs like "My Ukulele She Got Wings," "Cider Pudding," and "The Dursley Rhumba".</p>
                 <a href="https://open.spotify.com/artist/2cWhwKoJZ6rTbWoGS7c0jA" target="_blank" class="spotify-link">Listen on Spotify &rarr;</a>
             </div>
 
             <div class="album-card">
                 <h3 style="font-size: 1.05em; margin-bottom: 5px; color: #fff;">The Hawds: Floppiest Greats Volume 2 (2024)</h3>
-                <p style="font-size: 0.9em; color: #bbb; margin-bottom: 8px;">Their second full-length compilation, also spanning 35 tracks of their signature genre-blending style.</p>
+                <p style="font-size: 0.9em; color: #ccc; margin-bottom: 8px;">Their second full-length compilation, also spanning 35 tracks of their signature genre-blending style.</p>
                 <a href="https://open.spotify.com/artist/2cWhwKoJZ6rTbWoGS7c0jA" target="_blank" class="spotify-link">Listen on Spotify &rarr;</a>
             </div>
 
             <div class="album-card" style="margin-bottom: 15px;">
                 <h3 style="font-size: 1.05em; margin-bottom: 5px; color: #fff;">Get Off the Stage (Slow Version) (2024)</h3>
-                <p style="font-size: 0.9em; color: #bbb; margin-bottom: 8px;">A full-length alternative release following their performance window at the WOMAD festival.</p>
+                <p style="font-size: 0.9em; color: #ccc; margin-bottom: 8px;">A full-length alternative release following their performance window at the WOMAD festival.</p>
                 <a href="https://open.spotify.com/artist/2cWhwKoJZ6rTbWoGS7c0jA" target="_blank" class="spotify-link">Listen on Spotify &rarr;</a>
             </div>
 
-            <h3 style="font-size: 1.1em; margin: 20px 0 10px; color: var(--accent-gold); text-transform: uppercase;">Singles & EPs</h3>
+            <h3 style="font-size: 1.1em; margin: 20px 0 10px; color: #dcd0ff; text-transform: uppercase;">Singles & EPs</h3>
 
             <div class="album-card">
                 <h3 style="font-size: 1.05em; margin-bottom: 5px; color: #fff;">We Are Descendents of the Slime (2022)</h3>
-                <p style="font-size: 0.9em; color: #bbb; margin-bottom: 8px;">The band's standalone debut single release.</p>
+                <p style="font-size: 0.9em; color: #ccc; margin-bottom: 8px;">The band's standalone debut single release.</p>
                 <a href="https://open.spotify.com/artist/2cWhwKoJZ6rTbWoGS7c0jA" target="_blank" class="spotify-link">Listen on Spotify &rarr;</a>
             </div>
         </section>
@@ -550,21 +497,21 @@
         <section id="media" class="page-section card">
             <h2>Videos & Pictures</h2>
             
-            <h3 style="margin: 10px 0 8px; font-size: 1.05em; color: var(--accent-gold);">Photo Slideshow</h3>
+            <h3 style="margin: 10px 0 8px; font-size: 1.05em; color: #dcd0ff;">Photo Slideshow</h3>
             <div id="dynamic-slideshow" class="slideshow-container">
                 <p style="padding: 20px; color: #aaa;">Loading images from repository...</p>
             </div>
 
-            <h3 style="margin: 20px 0 8px; font-size: 1.05em; color: var(--accent-gold);">Live Clips</h3>
+            <h3 style="margin: 20px 0 8px; font-size: 1.05em; color: #dcd0ff;">Live Clips</h3>
             <div class="video-grid">
+                <div class="video-item" style="grid-column: 1 / -1;">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/5d5B25isaWw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 8px 24px rgba(0,0,0,0.6);"></iframe>
+                </div>
                 <div class="video-item" style="grid-column: 1 / -1;">
                     <iframe width="100%" height="315" src="https://www.youtube.com/embed/us7Lj_NA7NA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px;"></iframe>
                 </div>
                 <div class="video-item" style="grid-column: 1 / -1;">
                     <iframe width="100%" height="315" src="https://www.youtube.com/embed/vwtriTACkqo?is=MNPuvG6xg3qKwAs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px;"></iframe>
-                </div>
-                <div class="video-item" style="grid-column: 1 / -1;">
-                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/5d5B25isaWw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px;"></iframe>
                 </div>
             </div>
 
@@ -630,6 +577,67 @@
             event.currentTarget.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // Slowly Rotating Involute Wallpaper Animation (Lilac on China Blue)
+        const canvas = document.getElementById('involute-bg');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        let rotationAngle = 0;
+
+        function drawInvoluteWallpaper() {
+            ctx.fillStyle = '#3b5998'; // China Blue background
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.save();
+            ctx.translate(canvas.width / 2, canvas.height / 2);
+            ctx.rotate(rotationAngle);
+
+            // Draw multiple delicate overlapping/symmetrical involutes for a rich wallpaper texture
+            const numSpirals = 4;
+            for (let s = 0; s < numSpirals; s++) {
+                ctx.save();
+                ctx.rotate((s * 2 * Math.PI) / numSpirals);
+
+                ctx.beginPath();
+                // Parametric equation of a circle involute: 
+                // x = r * (cos(t) + t * sin(t))
+                // y = r * (sin(t) - t * cos(t))
+                const baseRadius = 35;
+                let firstPoint = true;
+
+                for (let t = 0; t <= 14; t += 0.05) {
+                    const x = baseRadius * (Math.cos(t) + t * Math.sin(t));
+                    const y = baseRadius * (Math.sin(t) - t * Math.cos(t));
+
+                    if (firstPoint) {
+                        ctx.moveTo(x, y);
+                        firstPoint = false;
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+
+                ctx.strokeStyle = 'rgba(220, 208, 255, 0.22)'; // Delicate Lilac with transparency
+                ctx.lineWidth = 2.5;
+                ctx.stroke();
+                ctx.restore();
+            }
+
+            ctx.restore();
+
+            // Very slow rotation increment
+            rotationAngle += 0.0008;
+            requestAnimationFrame(drawInvoluteWallpaper);
+        }
+
+        requestAnimationFrame(drawInvoluteWallpaper);
 
         // Automatic GitHub Directory Image Scroller & Slideshow Loader
         let currentSlideIndex = 0;
@@ -798,3 +806,4 @@ imageFiles.sort((a, b) => {
 - [2026-04-16] Going forward, when referring to the "Lidar-Wall-Control-Center" file, please increment the version number for incremental changes (e.g., -46 to -47), but do not change the title if it's a major change, unless it's a present from V 4341.
 - [2026-03-27] For this and all other chats, put the copy at the bottom of any code rather than the top.
 -->
+
