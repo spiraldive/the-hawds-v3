@@ -466,10 +466,14 @@
     </audio>
 
     <!-- HEADER: Original Logo Style -->
- <header>
-    <img src="LOGO.JPG" alt="The Hawds Logo" class="header-logo">
-    <div class="header-tagline">Flawlessly fused rock, funk, country and jazz.</div>
-</header>
+    <header>
+        <img src="LOGO.JPG" alt="The Hawds Logo" class="header-logo">
+        <div class="header-tagline">Flawlessly fused rock, funk, country and jazz.</div>
+        <!-- Embedded YouTube video below the logo/tagline -->
+        <div style="width: 100%; max-width: 480px; margin-top: 10px;">
+            <iframe width="100%" height="240" src="https://www.youtube.com/embed/5d5B25isaWw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 8px 24px rgba(0,0,0,0.6);"></iframe>
+        </div>
+    </header>
 
 
     <!-- TABBED NAVIGATION BAR -->
@@ -552,19 +556,17 @@
             </div>
 
             <h3 style="margin: 20px 0 8px; font-size: 1.05em; color: var(--accent-gold);">Live Clips</h3>
-              <div class="video-grid">
-          <div class="video-item" style="grid-column: 1 / -1;">
-              <iframe width="100%" height="315" src="https://www.youtube.com/embed/us7Lj_NA7NA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px;"></iframe>
-
-                  <div class="video-grid">
-          <div class="video-item" style="grid-column: 1 / -1;">
-              <iframe width="100%" height="315" src="https://www.youtube.com/embed/vwtriTACkqo?is=MNPuvG6xg3qKwAs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px;"></iframe>
-          </div>
-      </div>
-
-          
-          </div>
-							</div>
+            <div class="video-grid">
+                <div class="video-item" style="grid-column: 1 / -1;">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/us7Lj_NA7NA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px;"></iframe>
+                </div>
+                <div class="video-item" style="grid-column: 1 / -1;">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/vwtriTACkqo?is=MNPuvG6xg3qKwAs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px;"></iframe>
+                </div>
+                <div class="video-item" style="grid-column: 1 / -1;">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/5d5B25isaWw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px;"></iframe>
+                </div>
+            </div>
 
         </section>
 
@@ -772,9 +774,6 @@ imageFiles.sort((a, b) => {
                 }, function(error) {
                     submitBtn.disabled = false;
                     submitBtn.innerText = 'Submit Request';
-                    statusMsg.innerText = 'FAILED to send message.';
-                    statusMsg.className = 'status-error';
-                    alert('EmailJS Error (' + error.status + '): ' + error.text);
                 });
         });
 
